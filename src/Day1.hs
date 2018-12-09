@@ -1,22 +1,35 @@
-module Day1 where
+module Day1 (solutionA, solutionB) where
 
-import Data.Map (fromListWith, toList)
-import Control.Monad.State.Lazy
+import qualified Data.Set as S
 
 type Freq = Int
 type Change = Int
 type Quantity = Int
 
-parseFuckers :: String -> Change
-parseFuckers (s:r)
+parse :: String -> Change
+parse (s:r)
   | s == '+'  = p
   | s == '-'  = negate p
   | otherwise = error "Input error"
   where p = read r :: Change
 
-solutionA = do
-    input <- readFile "data/input1"
-    putStrLn $ show $ foldr (+) 0 $ parseFuckers <$> lines input 
+findRepetition :: [Freq] -> Maybe Freq
+findRepetition [] = Nothing
+findRepetition k = go S.empty k
+  where
+    go _ [] = Nothing
+    go s (x:xs)
+      | x `S.member` s = Just x
+      | otherwise      = go (x `S.insert` s) xs
 
-solutionB = undefined
-    
+solutionA = do
+    readFile "data/input1" >>=
+      putStrLn . show . frequency 
+    where
+      frequency = \x -> (sum . (fmap parse) . lines) x
+
+solutionB = do
+    readFile "data/input1" >>=
+      putStrLn . show . findRepetition . frequencies 
+    where
+      frequencies = \x -> ((scanl (+) 0) . map parse . cycle . lines) x 

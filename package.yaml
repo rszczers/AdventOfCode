@@ -1,6 +1,6 @@
-name:                advent2018
+name:                advent2018 
 version:             0.1.0.0
-github:              "rszczers/advent2018"
+github:              "rszczers/AdventOfCode2018"
 license:             BSD3
 author:              "Rafał Szczerski"
 maintainer:          "rafal.szczerski@gmail.com"
@@ -35,6 +35,10 @@ dependencies:
 - bytestring
 - containers
 - mtl
+- Unique
+- extra
+- hashable
+- unordered-containers
 
 library:
   source-dirs: src
