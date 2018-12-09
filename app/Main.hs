@@ -1,8 +1,9 @@
 module Main where
 
-import Ex1 
+import Day1 
 
 main :: IO ()
 main = do
     putStr "1.1:  "
-    Zad1.solution
+    Day1.solutionA
+
