@@ -39,6 +39,7 @@ dependencies:
 - extra
 - hashable
 - unordered-containers
+- parsec
 
 library:
   source-dirs: src

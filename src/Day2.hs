@@ -1,4 +1,4 @@
-module Day2 where
+module Day2 (solutionA, solutionB) where
 
 import Data.List
 import Data.List.Unique (occurrences)
