@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import qualified Ex1
 
 main :: IO ()
-main = someFunc
+main = Ex1.solution
