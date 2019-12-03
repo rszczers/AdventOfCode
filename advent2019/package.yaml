@@ -21,7 +21,12 @@ description:         Please see the README on GitHub at <https://github.com/rszc
 
 dependencies:
 - base >= 4.7 && < 5
-- microlens
+- transformers
+- text
+- mtl
+- vector
+- lens
+- parsec
 
 library:
   source-dirs: src
